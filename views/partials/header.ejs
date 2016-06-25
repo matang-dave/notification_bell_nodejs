@@ -1,0 +1,63 @@
+<!-- views/partials/header.ejs -->
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="row">
+      <ul id="nav">
+        <% if(isLoggedInUser){ %>
+        <li class="profile-nav floatRight">
+          <span class="profile-small-pic"><img class="img-responsive" src="<%= userSession.pic %>"></span>
+          <span class="profile-setting-icon">
+            <i class="fa fa-chevron-down"></i>
+          </span>
+          <ul class="profile-setting-dropdown">
+            <li class="user-name"
+                title="<%= userSession.user_name.toUpperCase() %>"><%= userSession.user_name.toUpperCase() %></li>
+            <li><a href="/logout">LOGOUT</a></li>
+          </ul>
+        </li>
+        <li class="notification-nav floatRight notification-header-icon-holder">
+          <i class="fa fa-bell-o notification-header-icon">
+            <div id="header-notification-unread-counter" class="notification-counter"></div>
+          </i>
+          <div id="notification-wrapper">
+            <div class="notification-arrow-wrapper">
+              <div class="notification-tooltip-arrow"></div>
+            </div>
+            <div class="notification-container">
+              <div id="notification-header" class="text-center">
+                <span class="notification-header-label">Notifications</span><span id="notification-unread-counter"
+                                                                                  class="notification-counter"></span>
+              </div>
+              <div id="notification-content">
+              </div>
+            </div>
+          </div>
+          <i class="fa fa-envelope-o"></i>
+        </li>
+        <li class="nav-spacer floatRight">
+        </li>
+        <% } else{ %>
+        <li id="t-signin" class="floatRight">
+          <a class="links" href="#" data-toggle="modal" data-target="#sign_in_modal">
+            Sign in
+          </a></li>
+        <li class="nav-spacer floatRight">
+
+        </li>
+        <li id="t-signup" class="floatRight">
+          <a class="links" href="#" data-toggle="modal" data-target="#sign_up_modal">Sign up</a>
+        </li>
+        <li class="nav-spacer floatRight">
+        </li>
+        <% } %>
+        <li id="t-search" class="floatRight">
+          <i class="fa fa-search "></i>
+          <input class="search-text" type="text"/>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  </div>
+</nav>
